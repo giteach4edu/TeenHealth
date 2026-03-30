@@ -1,394 +1,174 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TeenHealth Analytics System</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TeenHealth</title>
 
-    :root {
-      --bg: #dbe8ef;
-      --text: #111111;
-      --white: #f8f8f8;
-      --shadow: 0 6px 14px rgba(0,0,0,0.06);
-    }
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800&display=swap" rel="stylesheet">
 
-    body {
-      font-family: "Be Vietnam Pro", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-    }
+<style>
+body{
+    margin:0;
+    font-family:'Be Vietnam Pro', sans-serif;
+    background:#dbe8ef;
+}
 
-    .page {
-      width: 100%;
-      min-height: 100vh;
-      max-width: 1061px;
-      margin: 0 auto;
-      padding: 24px 28px 12px 30px;
-      overflow: hidden;
-      background: var(--bg);
-    }
+/* HEADER */
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+}
 
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 24px;
-    }
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-top: 2px;
-    }
+.logo img{
+    width:60px;
+}
 
-    .brand-logo {
-      width: 62px;
-      height: 62px;
-      object-fit: contain;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
+.menu{
+    display:flex;
+    gap:30px;
+}
 
-    .brand-text h1 {
-      font-size: 18px;
-      line-height: 1.15;
-      font-weight: 800;
-      letter-spacing: 0.2px;
-      text-transform: uppercase;
-      margin-top: 3px;
-    }
+.menu button{
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    background:#eee;
+    font-weight:600;
+}
 
-    .brand-text p {
-      font-size: 15px;
-      line-height: 1.25;
-      margin-top: 2px;
-      font-weight: 400;
-    }
+/* TITLE */
+.title{
+    font-size:36px;
+    font-weight:800;
+    padding:10px 40px;
+}
 
-    .nav-actions {
-      display: flex;
-      gap: 46px;
-      margin-right: 90px;
-      margin-top: 8px;
-    }
+/* MAIN */
+.main{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:20px 40px;
+}
 
-    .nav-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 140px;
-      height: 44px;
-      background: rgba(255,255,255,0.85);
-      border-radius: 9px;
-      color: var(--text);
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 700;
-      box-shadow: var(--shadow);
-    }
+/* BÁC SĨ */
+.doctor img{
+    width:300px;
+}
 
-    .hero-title {
-      margin-top: 62px;
-      font-size: 38px;
-      line-height: 1.12;
-      font-weight: 800;
-      letter-spacing: -0.3px;
-      white-space: nowrap;
-    }
+/* RIGHT */
+.right{
+    position:relative;
+    width:500px;
+    height:300px;
+}
 
-    .hero {
-      display: grid;
-      grid-template-columns: 360px 1fr;
-      gap: 42px;
-      align-items: start;
-      margin-top: 18px;
-    }
+/* CARD */
+.card{
+    position:absolute;
+    text-align:center;
+}
 
-    .left-visual {
-      position: relative;
-      width: 350px;
-      height: 360px;
-      margin-left: 6px;
-      margin-top: 6px;
-    }
+.card img{
+    width:100px;
+}
 
-    .doctor-illustration {
-      width: 330px;
-      height: 360px;
-      object-fit: contain;
-      display: block;
-    }
+.card button{
+    margin-top:10px;
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    background:#eee;
+    font-weight:700;
+}
 
-    .right-panel {
-      position: relative;
-      min-height: 360px;
-    }
+/* POSITIONS */
+.kienthuc{
+    top:0;
+    left:50px;
+}
 
-    .feature-card {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-decoration: none;
-      color: var(--text);
-    }
+.phanTich{
+    top:30px;
+    right:50px;
+}
 
-    .feature-card img {
-      object-fit: contain;
-      display: block;
-    }
+.bottom{
+    position:absolute;
+    bottom:0;
+    right:0;
+    display:flex;
+    gap:20px;
+}
 
-    .feature-label {
-      background: rgba(255,255,255,0.82);
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-weight: 800;
-      color: #0f0f0f;
-    }
+.bottom button{
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    background:#eee;
+}
 
-    .knowledge {
-      left: 40px;
-      top: 22px;
-    }
-
-    .knowledge img {
-      width: 110px;
-      height: 88px;
-      margin-bottom: 8px;
-    }
-
-    .knowledge .feature-label {
-      width: 210px;
-      height: 54px;
-      font-size: 24px;
-    }
-
-    .analysis {
-      left: 305px;
-      top: 58px;
-    }
-
-    .analysis img {
-      width: 120px;
-      height: 82px;
-      margin-bottom: 5px;
-    }
-
-    .analysis .feature-label {
-      width: 188px;
-      height: 66px;
-      font-size: 21px;
-      line-height: 1.05;
-      padding-top: 2px;
-    }
-
-    .bottom-actions {
-      position: absolute;
-      right: 0;
-      bottom: -6px;
-      display: flex;
-      gap: 30px;
-      align-items: flex-end;
-    }
-
-    .mini-card {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      color: var(--text);
-      background: rgba(255,255,255,0.82);
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-      height: 42px;
-      font-size: 15px;
-    }
-
-    .guide-wrap {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transform: translateY(2px);
-    }
-
-    .guide-icon {
-      width: 44px;
-      height: 44px;
-      object-fit: contain;
-      display: block;
-    }
-
-    .guide-btn {
-      width: 140px;
-      font-weight: 500;
-    }
-
-    .survey-btn {
-      width: 158px;
-      font-weight: 500;
-    }
-
-    @media (max-width: 980px) {
-      .page {
-        max-width: 100%;
-        padding: 20px 18px 24px;
-      }
-
-      .topbar {
-        flex-direction: column;
-      }
-
-      .nav-actions {
-        margin-right: 0;
-        gap: 16px;
-      }
-
-      .hero-title {
-        white-space: normal;
-        font-size: 30px;
-        margin-top: 30px;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      .left-visual {
-        margin: 0 auto;
-      }
-
-      .right-panel {
-        min-height: 440px;
-      }
-
-      .knowledge { left: 20px; top: 10px; }
-      .analysis { right: 20px; left: auto; top: 34px; }
-      .bottom-actions {
-        position: static;
-        margin-top: 240px;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .brand {
-        align-items: flex-start;
-      }
-
-      .brand-text h1 { font-size: 16px; }
-      .brand-text p { font-size: 14px; }
-
-      .nav-actions {
-        width: 100%;
-        flex-wrap: wrap;
-      }
-
-      .nav-btn {
-        width: calc(50% - 8px);
-      }
-
-      .left-visual {
-        width: 100%;
-        height: auto;
-      }
-
-      .doctor-illustration {
-        width: 100%;
-        height: auto;
-      }
-
-      .right-panel {
-        min-height: 520px;
-      }
-
-      .knowledge,
-      .analysis {
-        position: static;
-        margin: 0 auto 22px;
-      }
-
-      .bottom-actions {
-        margin-top: 10px;
-        gap: 16px;
-      }
-
-      .guide-wrap,
-      .survey-btn {
-        width: 100%;
-      }
-
-      .guide-btn,
-      .survey-btn {
-        width: 100%;
-      }
-    }
-  </style>
+</style>
 </head>
+
 <body>
-  <main class="page">
-    <header class="topbar">
-      <div class="brand">
-        <img
-          class="brand-logo"
-          src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png"
-          alt="Logo TeenHealth"
-        >
-        <div class="brand-text">
-          <h1>TEENHEALTH ANALYTICS SYSTEM</h1>
-          <p>Hệ thống hỗ trợ phân tích sức khỏe học đường</p>
+
+<div class="header">
+    <div class="logo">
+        <img src="logo.png">
+        <div>
+            <b>TEENHEALTH ANALYTICS SYSTEM</b><br>
+            Hệ thống hỗ trợ phân tích sức khỏe học đường
         </div>
-      </div>
+    </div>
 
-      <nav class="nav-actions">
-        <a class="nav-btn" href="#gioi-thieu">Giới thiệu</a>
-        <a class="nav-btn" href="#dang-nhap">Đăng nhập</a>
-      </nav>
-    </header>
+    <div class="menu">
+        <button>Giới thiệu</button>
+        <button>Đăng nhập</button>
+    </div>
+</div>
 
-    <h2 class="hero-title">Hành trình khỏe mạnh – luôn có tụi mình bên bạn!</h2>
+<div class="title">
+    Hành trình khỏe mạnh – luôn có tụi mình bên bạn!
+</div>
 
-    <section class="hero">
-      <div class="left-visual">
-        <img
-          class="doctor-illustration"
-          src="https://cdn-icons-png.flaticon.com/512/2785/2785819.png"
-          alt="Minh họa bác sĩ"
-        >
-      </div>
+<div class="main">
 
-      <div class="right-panel">
-        <a class="feature-card knowledge" href="#kien-thuc">
-          <img src="https://cdn-icons-png.flaticon.com/512/3976/3976626.png" alt="Kiến thức">
-          <div class="feature-label">Kiến thức</div>
-        </a>
+    <div class="doctor">
+        <img src="Bacsi.png">
+    </div>
 
-        <a class="feature-card analysis" href="#phan-tich">
-          <img src="https://cdn-icons-png.flaticon.com/512/3209/3209265.png" alt="Phân tích sức khỏe">
-          <div class="feature-label">Phân tích<br>sức khỏe</div>
-        </a>
+    <div class="right">
 
-        <div class="bottom-actions">
-          <div class="guide-wrap">
-            <img class="guide-icon" src="https://cdn-icons-png.flaticon.com/512/471/471664.png" alt="Hướng dẫn">
-            <a class="mini-card guide-btn" href="#huong-dan">Hướng dẫn</a>
-          </div>
-          <a class="mini-card survey-btn" href="#khao-sat">Khảo sát</a>
+        <div class="card kienthuc">
+            <img src="https://cdn-icons-png.flaticon.com/512/3976/3976626.png">
+            <br>
+            <button>Kiến thức</button>
         </div>
-      </div>
-    </section>
-  </main>
+
+        <div class="card phanTich">
+            <img src="https://cdn-icons-png.flaticon.com/512/3209/3209265.png">
+            <br>
+            <button>Phân tích sức khỏe</button>
+        </div>
+
+        <div class="bottom">
+            <button>Hướng dẫn</button>
+            <button>Khảo sát</button>
+        </div>
+
+    </div>
+
+</div>
+
 </body>
 </html>
-
