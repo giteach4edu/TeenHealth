@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" /> <!-- Hiển thị tiếng Việt -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsive -->
   <title>TeenHealth Analytics System</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font chữ -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
 
   <style>
+
+    /* Reset CSS mặc định */
     * {
       margin: 0;
       padding: 0;
@@ -17,27 +18,27 @@
     }
 
     body {
-      font-family: 'Nunito', sans-serif;
-      background: #dbe8ef;
-      color: #111;
+      font-family: 'Nunito', sans-serif; /* Font chữ */
+      background: #dbe8ef; /* Màu nền */
+      color: #111; /* Màu chữ */
     }
 
+    /* Khung chính */
     .container {
-      width: 100%;
-      max-width: 1150px;
-      min-height: 100vh;
-      margin: 0 auto;
-      padding: 24px 34px 18px;
+      max-width: 1150px; /* Giới hạn chiều rộng */
+      margin: 0 auto; /* Căn giữa */
+      padding: 24px 34px;
     }
 
+    /* HEADER */
     .header {
-      display: flex;
-      justify-content: space-between;
+      display: flex; /* Xếp ngang */
+      justify-content: space-between; /* 2 bên */
       align-items: flex-start;
-      gap: 24px;
-      margin-bottom: 34px;
+      margin-bottom: 30px;
     }
 
+    /* Logo + chữ */
     .brand {
       display: flex;
       align-items: center;
@@ -45,321 +46,219 @@
     }
 
     .brand img {
-      width: 66px;
-      height: 66px;
-      object-fit: contain;
-      flex-shrink: 0;
+      width: 66px; /* Size logo */
     }
 
     .brand-text h1 {
       font-size: 18px;
       font-weight: 800;
-      line-height: 1.15;
-      text-transform: uppercase;
-      margin-top: 2px;
     }
 
     .brand-text p {
-      font-size: 15px;
-      line-height: 1.25;
-      margin-top: 2px;
-      font-weight: 400;
+      font-size: 14px;
     }
 
+    /* Nút trên */
     .top-buttons {
       display: flex;
-      gap: 18px;
-      margin-top: 2px;
+      gap: 16px;
     }
 
     .top-buttons a {
       width: 150px;
       height: 48px;
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255,255,255,0.82);
-      color: #111;
-      text-decoration: none;
+
+      background: #fff;
       border-radius: 10px;
-      font-size: 15px;
+
+      text-decoration: none;
       font-weight: 700;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease;
+
+      border: 2px solid #ccc; /* Viền */
+      transition: 0.2s;
     }
 
-    .small-btn:hover,
-    .top-buttons a:hover,
-    .card:hover {
-    border-color: #42a5f5;
-    transform: translateY(-3px);
-    transition: 0.2s;
-}
+    .top-buttons a:hover {
+      transform: translateY(-2px); /* hover nhô lên */
+      border-color: #42a5f5;
+    }
 
+    /* TIÊU ĐỀ */
     .hero-title {
-    font-size: 48px;
-    font-weight: 800;
-    line-height: 1.15;
+      font-size: 48px;
+      font-weight: 800;
 
-    width: 100vw;        /* full màn hình */
-    margin-left: -34px;  /* kéo ra ngoài */
-}
+      width: 100vw; /* Full màn hình */
+      margin-left: -34px; /* Kéo ra ngoài */
+    }
 
+    /* MAIN */
     .main {
       display: grid;
-      grid-template-columns: 390px 1fr;
+      grid-template-columns: 400px 1fr; /* trái - phải */
       gap: 30px;
-      align-items: start;
     }
 
-    .left-side {
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-    }
-
+    /* Ảnh bác sĩ */
     .left-side img {
       width: 350px;
-      max-width: 100%;
-      height: auto;
-      display: block;
     }
 
+    /* BÊN PHẢI */
     .right-side {
       position: relative;
-      min-height: 380px;
-      padding-top: 10px;
     }
 
+    /* 2 nút lớn */
     .cards-row {
       display: flex;
       justify-content: center;
-      align-items: flex-start;
       gap: 60px;
-      margin-top: 16px;
     }
 
     .card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       text-decoration: none;
       color: #111;
-      transition: transform 0.2s ease;
+      text-align: center;
+      transition: 0.2s;
     }
 
     .card img {
-      display: block;
-      object-fit: contain;
+      width: 110px;
       margin-bottom: 10px;
     }
 
-    .card-knowledge img {
-      width: 120px;
-      height: 96px;
+    .card:hover {
+      transform: translateY(-5px); /* hover */
     }
 
-    .card-analysis img {
-      width: 122px;
-      height: 96px;
-    }
-
+    /* Nút trắng */
     .feature-label {
-      background: rgba(255,255,255,0.82);
+      background: #fff;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      min-width: 225px;
-      min-height: 58px;
-      padding: 8px 18px;
+
+      padding: 10px 20px;
+
       font-weight: 800;
-      font-size: 25px;
-      line-height: 1.1;
+      font-size: 22px;
+
+      border: 2px solid #ccc; /* Viền */
     }
 
-    .card-analysis .feature-label {
-      min-width: 205px;
-      min-height: 72px;
-      font-size: 20px;
-    }
-
+    /* Dưới */
     .bottom-actions {
       position: absolute;
-      right: 8px;
-      bottom: 8px;
+      bottom: 0;
+      right: 0;
+
+      display: flex;
+      gap: 20px;
+    }
+
+    /* Nhóm dấu ? */
+    .guide-group {
       display: flex;
       align-items: center;
-      gap: 34px;
+      gap: 5px; /* Khoảng cách ? và nút */
     }
-
-   .guide-group {
-    display: flex;
-    align-items: center;
-    gap: 1px; /* khoảng cách giữa ? và nút */
-}
-
-.guide-icon {
-    font-size: 42px;
-    line-height: 1;
-}
 
     .guide-icon {
-      font-size: 46px;
-      line-height: 1;
+      font-size: 40px; /* Size dấu ? */
     }
 
+    /* Nút nhỏ */
     .small-btn {
-      min-width: 166px;
-      height: 46px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,255,255,0.82);
-      color: #111;
-      text-decoration: none;
+      padding: 10px 20px;
+
+      background: #fff;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      font-size: 15px;
-      font-weight: 500;
-      transition: transform 0.2s ease;
-      padding: 0 20px;
+
+      text-decoration: none;
+
+      border: 2px solid #ccc; /* Viền */
+
+      transition: 0.2s;
     }
 
-    .survey-btn {
-      min-width: 172px;
+    .small-btn:hover {
+      transform: translateY(-2px);
+      border-color: #42a5f5;
     }
 
-    @media (max-width: 980px) {
-      .container {
-        padding: 20px 18px;
-      }
-
-      .header {
-        flex-direction: column;
-      }
-
-      .main {
-        grid-template-columns: 1fr;
-      }
-
-      .left-side {
-        justify-content: center;
-      }
-
-      .right-side {
-        min-height: auto;
-        padding-bottom: 100px;
-      }
-
-      .cards-row {
-        flex-wrap: wrap;
-        gap: 26px;
-      }
-
-      .bottom-actions {
-        left: 0;
-        right: 0;
-        justify-content: center;
-      }
-
-      .hero-title {
-        font-size: 38px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .brand-text h1 {
-        font-size: 16px;
-      }
-
-      .brand-text p {
-        font-size: 14px;
-      }
-
-      .top-buttons {
-        flex-wrap: wrap;
-      }
-
-      .top-buttons a {
-        width: 140px;
-      }
-
-      .hero-title {
-        font-size: 32px;
-      }
-
-      .feature-label {
-        min-width: 190px;
-        font-size: 22px;
-      }
-
-      .card-analysis .feature-label {
-        min-width: 190px;
-        font-size: 18px;
-      }
-
-      .bottom-actions {
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-
-      .guide-group {
-        width: 100%;
-        justify-content: center;
-      }
-    }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <header class="header">
-      <div class="brand">
-        <img src="logo.png" alt="Logo TeenHealth">
-        <div class="brand-text">
-          <h1>TEENHEALTH ANALYTICS SYSTEM</h1>
-          <p>Hệ thống hỗ trợ phân tích sức khỏe học đường</p>
-        </div>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="brand">
+      <img src="logo.png"> <!-- Logo -->
+      <div class="brand-text">
+        <h1>TEENHEALTH ANALYTICS SYSTEM</h1>
+        <p>Hệ thống hỗ trợ phân tích sức khỏe học đường</p>
       </div>
+    </div>
 
-      <div class="top-buttons">
-        <a href="gioithieu.html">Giới thiệu</a>
-        <a href="dangnhap.html">Đăng nhập</a>
-      </div>
-    </header>
-
-    <h2 class="hero-title">Hành trình khỏe mạnh – luôn có tụi mình bên bạn!</h2>
-
-    <section class="main">
-      <div class="left-side">
-        <img src="Bacsi.png" alt="Ảnh bác sĩ">
-      </div>
-
-      <div class="right-side">
-        <div class="cards-row">
-          <a class="card card-knowledge" href="kienthuc.html">
-            <img src="logokiebthuc.png" alt="Kiến thức">
-            <div class="feature-label">Kiến thức</div>
-          </a>
-
-          <a class="card card-analysis" href="phantich.html">
-            <img src="logosk.png" alt="Phân tích sức khỏe">
-            <div class="feature-label">Phân tích<br>sức khỏe</div>
-          </a>
-        </div>
-
-        <div class="bottom-actions">
-          <div class="guide-group">
-            <div class="guide-icon">❓</div>
-            <a class="small-btn" href="huongdan.html">Hướng dẫn</a>
-          </div>
-
-          <a class="small-btn survey-btn" href="khaosat.html">Khảo sát</a>
-        </div>
-      </div>
-    </section>
+    <div class="top-buttons">
+      <a href="#">Giới thiệu</a>
+      <a href="#">Đăng nhập</a>
+    </div>
   </div>
+
+  <!-- TIÊU ĐỀ -->
+  <div class="hero-title">
+    Hành trình khỏe mạnh – luôn có tụi mình bên bạn!
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- BÊN TRÁI -->
+    <div class="left-side">
+      <img src="Bacsi.png"> <!-- Ảnh bác sĩ -->
+    </div>
+
+    <!-- BÊN PHẢI -->
+    <div class="right-side">
+
+      <!-- 2 chức năng -->
+      <div class="cards-row">
+
+        <a class="card" href="#">
+          <img src="logokiebthuc.png">
+          <div class="feature-label">Kiến thức</div>
+        </a>
+
+        <a class="card" href="#">
+          <img src="logosk.png">
+          <div class="feature-label">Phân tích<br>sức khỏe</div>
+        </a>
+
+      </div>
+
+      <!-- Nút dưới -->
+      <div class="bottom-actions">
+
+        <div class="guide-group">
+          <div class="guide-icon">❓</div>
+          <a class="small-btn" href="#">Hướng dẫn</a>
+        </div>
+
+        <a class="small-btn" href="#">Khảo sát</a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
 </body>
 </html>
