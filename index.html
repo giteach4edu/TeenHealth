@@ -1,174 +1,356 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TeenHealth</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TeenHealth Analytics System</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<style>
-body{
-    margin:0;
-    font-family:'Be Vietnam Pro', sans-serif;
-    background:#dbe8ef;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* HEADER */
-.header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 40px;
-}
+    body {
+      font-family: "Be Vietnam Pro", sans-serif;
+      background: #dbe8ef;
+      color: #111;
+    }
 
-.logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
+    .container {
+      width: 100%;
+      max-width: 1150px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 24px 34px 18px;
+    }
 
-.logo img{
-    width:60px;
-}
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
 
-.menu{
-    display:flex;
-    gap:30px;
-}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
 
-.menu button{
-    padding:10px 20px;
-    border:none;
-    border-radius:8px;
-    background:#eee;
-    font-weight:600;
-}
+    .brand img {
+      width: 66px;
+      height: 66px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
 
-/* TITLE */
-.title{
-    font-size:36px;
-    font-weight:800;
-    padding:10px 40px;
-}
+    .brand-text h1 {
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.15;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
 
-/* MAIN */
-.main{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:20px 40px;
-}
+    .brand-text p {
+      font-size: 15px;
+      line-height: 1.25;
+      margin-top: 2px;
+      font-weight: 400;
+    }
 
-/* BÁC SĨ */
-.doctor img{
-    width:300px;
-}
+    .top-buttons {
+      display: flex;
+      gap: 18px;
+      margin-top: 2px;
+    }
 
-/* RIGHT */
-.right{
-    position:relative;
-    width:500px;
-    height:300px;
-}
+    .top-buttons a {
+      width: 150px;
+      height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.82);
+      color: #111;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
+    }
 
-/* CARD */
-.card{
-    position:absolute;
-    text-align:center;
-}
+    .top-buttons a:hover,
+    .card:hover,
+    .small-btn:hover {
+      transform: translateY(-2px);
+    }
 
-.card img{
-    width:100px;
-}
+    .hero-title {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin: 12px 0 24px;
+    }
 
-.card button{
-    margin-top:10px;
-    padding:10px 20px;
-    border:none;
-    border-radius:8px;
-    background:#eee;
-    font-weight:700;
-}
+    .main {
+      display: grid;
+      grid-template-columns: 390px 1fr;
+      gap: 30px;
+      align-items: start;
+    }
 
-/* POSITIONS */
-.kienthuc{
-    top:0;
-    left:50px;
-}
+    .left-side {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
 
-.phanTich{
-    top:30px;
-    right:50px;
-}
+    .left-side img {
+      width: 350px;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
 
-.bottom{
-    position:absolute;
-    bottom:0;
-    right:0;
-    display:flex;
-    gap:20px;
-}
+    .right-side {
+      position: relative;
+      min-height: 380px;
+      padding-top: 10px;
+    }
 
-.bottom button{
-    padding:10px 20px;
-    border:none;
-    border-radius:8px;
-    background:#eee;
-}
+    .cards-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 60px;
+      margin-top: 16px;
+    }
 
-</style>
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #111;
+      transition: transform 0.2s ease;
+    }
+
+    .card img {
+      display: block;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    .card-knowledge img {
+      width: 120px;
+      height: 96px;
+    }
+
+    .card-analysis img {
+      width: 122px;
+      height: 96px;
+    }
+
+    .feature-label {
+      background: rgba(255,255,255,0.82);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-width: 225px;
+      min-height: 58px;
+      padding: 8px 18px;
+      font-weight: 800;
+      font-size: 25px;
+      line-height: 1.1;
+    }
+
+    .card-analysis .feature-label {
+      min-width: 205px;
+      min-height: 72px;
+      font-size: 20px;
+    }
+
+    .bottom-actions {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .guide-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .guide-icon {
+      font-size: 46px;
+      line-height: 1;
+    }
+
+    .small-btn {
+      min-width: 166px;
+      height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.82);
+      color: #111;
+      text-decoration: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      font-size: 15px;
+      font-weight: 500;
+      transition: transform 0.2s ease;
+      padding: 0 20px;
+    }
+
+    .survey-btn {
+      min-width: 172px;
+    }
+
+    @media (max-width: 980px) {
+      .container {
+        padding: 20px 18px;
+      }
+
+      .header {
+        flex-direction: column;
+      }
+
+      .main {
+        grid-template-columns: 1fr;
+      }
+
+      .left-side {
+        justify-content: center;
+      }
+
+      .right-side {
+        min-height: auto;
+        padding-bottom: 100px;
+      }
+
+      .cards-row {
+        flex-wrap: wrap;
+        gap: 26px;
+      }
+
+      .bottom-actions {
+        left: 0;
+        right: 0;
+        justify-content: center;
+      }
+
+      .hero-title {
+        font-size: 38px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .brand-text h1 {
+        font-size: 16px;
+      }
+
+      .brand-text p {
+        font-size: 14px;
+      }
+
+      .top-buttons {
+        flex-wrap: wrap;
+      }
+
+      .top-buttons a {
+        width: 140px;
+      }
+
+      .hero-title {
+        font-size: 32px;
+      }
+
+      .feature-label {
+        min-width: 190px;
+        font-size: 22px;
+      }
+
+      .card-analysis .feature-label {
+        min-width: 190px;
+        font-size: 18px;
+      }
+
+      .bottom-actions {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .guide-group {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-<div class="header">
-    <div class="logo">
-        <img src="logo.png">
-        <div>
-            <b>TEENHEALTH ANALYTICS SYSTEM</b><br>
-            Hệ thống hỗ trợ phân tích sức khỏe học đường
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <img src="logo.png" alt="Logo TeenHealth">
+        <div class="brand-text">
+          <h1>TEENHEALTH ANALYTICS SYSTEM</h1>
+          <p>Hệ thống hỗ trợ phân tích sức khỏe học đường</p>
         </div>
-    </div>
+      </div>
 
-    <div class="menu">
-        <button>Giới thiệu</button>
-        <button>Đăng nhập</button>
-    </div>
-</div>
+      <div class="top-buttons">
+        <a href="gioithieu.html">Giới thiệu</a>
+        <a href="dangnhap.html">Đăng nhập</a>
+      </div>
+    </header>
 
-<div class="title">
-    Hành trình khỏe mạnh – luôn có tụi mình bên bạn!
-</div>
+    <h2 class="hero-title">Hành trình khỏe mạnh – luôn có tụi mình bên bạn!</h2>
 
-<div class="main">
+    <section class="main">
+      <div class="left-side">
+        <img src="Bacsi.png" alt="Ảnh bác sĩ">
+      </div>
 
-    <div class="doctor">
-        <img src="Bacsi.png">
-    </div>
+      <div class="right-side">
+        <div class="cards-row">
+          <a class="card card-knowledge" href="kienthuc.html">
+            <img src="logokiebthuc.png" alt="Kiến thức">
+            <div class="feature-label">Kiến thức</div>
+          </a>
 
-    <div class="right">
-
-        <div class="card kienthuc">
-            <img src="https://cdn-icons-png.flaticon.com/512/3976/3976626.png">
-            <br>
-            <button>Kiến thức</button>
-        </div>
-
-        <div class="card phanTich">
-            <img src="https://cdn-icons-png.flaticon.com/512/3209/3209265.png">
-            <br>
-            <button>Phân tích sức khỏe</button>
+          <a class="card card-analysis" href="phantich.html">
+            <img src="logosk.png" alt="Phân tích sức khỏe">
+            <div class="feature-label">Phân tích<br>sức khỏe</div>
+          </a>
         </div>
 
-        <div class="bottom">
-            <button>Hướng dẫn</button>
-            <button>Khảo sát</button>
+        <div class="bottom-actions">
+          <div class="guide-group">
+            <div class="guide-icon">❓</div>
+            <a class="small-btn" href="huongdan.html">Hướng dẫn</a>
+          </div>
+
+          <a class="small-btn survey-btn" href="khaosat.html">Khảo sát</a>
         </div>
-
-    </div>
-
-</div>
-
+      </div>
+    </section>
+  </div>
 </body>
 </html>
